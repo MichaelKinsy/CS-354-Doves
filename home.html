@@ -73,7 +73,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif},h1,button {font-family:
 
 	  <h3>Procedural Python</h3>
 	  <p>Python is commonaly used as a procedural programming language in scripting environments. This paradigm is a subset fo imperative programming in which statements are structured into procedures. This paradigm is typically a list of instructions that execute one after the other starting from the top of the first line of the program. This is useful for creating modules that can be unrelated to other modules and programs yet still be accessed by said programs and work together with other modules to achieve goals for the program. As well as support resue of procedures within a program that are defined in either other libraries or modules.</p>
-	  <p>TODO: finish</p>
+	  <p style="color: red">TODO: finish</p>
 
       <!-- <h4>Short explanation of how python is a object-oriented language (Maybe scripting language as well)</h4> -->
       <h4>Quirks and and advantages</h4>
@@ -95,16 +95,131 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif},h1,button {font-family:
   <div>
     <div>
       <h2>Python Fundamentals</h2>
-      <h4>How to start IDLE (IDE?)</h4>
+      <h4>How to start IDLE</h4>
+		<p>IDLE is Python's own little development interface, which comes with the installation of Python. Basically, it's where you type the code to make the code work. While other IDEs are useable, we'll be sticking with this one for now. Instructions on how to install IDLE (and Python as a whole) are in the 'installation' section.</p>
+		<p>After installing IDLE/Python, IDLE should be available as an application. Running that will open a menu that looks a little like this:</p>
+		<code>Python 3.9.0 (tags/v3.9.0:9cf6752, Jan  1 2048, 42:00:69) [MSC v.1927 64 bit (AMD64)] on win32</code> <br>
+		<code>Type "help", "copyright", "credits" or "license()" for more information.</code> <br>
+		<code>>>></code> <br>
+		<p>If you see this, don't panic, you're exactly in the right spot. This is called the 'Python Shell'</p>
+		<p>Typing code into here will run it. For example, type this:</p>
+		<code>asdf = 12</code>
+		<p>Then press enter. After that, type</p>
+		<code>print(asdf)</code>
+		<p>And press enter. Underneath what you just typed, the number 12 should appear. While you may not know why yet, just know that IDLE is working properly.</p>
+		<p>BUT: what if you want to make programs?</p>
+		<p>To make a new program, head to 'file' and hit 'New File'. This will let you make your own Python programs which will run in the Python Shell.</p>
       <h4>What you need for a program to run.</h4>
+		<p>Once you have a new file open to start making code, make some code!</p>
+		<p>Let's start with something simple. Type the following:</p>
+		<code>myCoolInteger = 8675309</code><br>
+		<code>myCoolString = "cool"</code><br>
+		<code></code><br>
+		<code>print(myCoolInteger,"is",myCoolString)</code><br>
+		<p>Once you have your program all typed up, hit 'File', then 'Save', and store it somewhere.</p>
+		<p>To run your cool new program, hit 'Run', then 'Run Module'. The Python Shell will run your brand new code in it.</p>
       <h4>Syntax (needs expanded on but we need to consider what is to be documented here or in our examples)</h4>
+		<p>Python's written syntax is relatively simple, with one key thing that many languages do not have: <b>significant indentation!</b></p>
+		<p>While good indentation in other programs is recommended for readability, in Python it's also important for the compiler to read it too. Where you put your tabs and why is very important. For example, everything contained in a 'while' loop or an 'if' statement must be indented within it, or else it assumes it not to be part of that loop.</p>
+		<code>x = 2</code><br>
+		<code>if x==2:</code><br>
+		<code style="margin-left: 40px">    print("I'm in the if!")</code><br>
+		<code>print("I'm not in the if!")</code><br>
+		<p>Or:</p>
+		
+		<code>while x &#60; 5:</code><br>
+		<code style="margin-left: 40px">print("I will print 5 times!")</code><br>
+		<code style="margin-left: 40px">x = x + 1</code><br>
+		<code>print("I will print once!")</code><br>
+		
+		
+		<p>Aside from that, Python syntax is pretty straight-forward. Creating a variable is done with [name] = [value], such as: </p>
+		<code>HowOldAmI = 22</code>
+		<p>And Python is built to understand what variable type it should be! In this instance, HowOldAmI would be an integer, with the data '22' stored inside it.</p>
+		<p>Comments are easy too! Just use the # character to leave a comment, and the computer will ignore whatever you throw in there.</p>
+		<code>while x &#60; 5: #I am the ghost of development past!</code><br>
       <h4> Common built in data structures</h4>
+	  <p>There's a boatload of ways to store a pile of data. Unordered? Ordered? Changeable? It seems there's a data type to support whatever you need. We'll start with these four:</p>
+	  <ul>
+		  <li>Lists</li>
+		  <li>Sets</li>
+		  <li>Tuples</li>
+		  <li>Dictionaries</li>
+	  </ul>
+	  
+	  	<table>
+		  <tr>
+			<th>Type:</th>
+			<th>Ordered?</th>
+			<th>Indexed?</th>
+			<th>Changeable?</th>
+			<th>Annoying?</th>
+		  </tr>
+		  <tr>
+			<td>List</td>
+			<td>Yes</td>
+			<td>Yes</td>
+			<td>Yes</td>
+			<td>No</td>
+		  </tr>
+		  <tr>
+			<td>Tuple</td>
+			<td>Yes</td>
+			<td>Yes</td>
+			<td>No</td>
+			<td>Kinda</td>
+		  </tr>
+		  <tr>
+			<td>Set</td>
+			<td>No</td>
+			<td>No</td>
+			<td>Yes</td>
+			<td>No</td>
+		  </tr>
+		  <tr>
+			<td>Dictionary</td>
+			<td>No</td>
+			<td>Yes</td>
+			<td>Yes</td>
+			<td>Yes...</td>
+		  </tr>
+		</table>
+	  
+	  <p style="color: red">TODO: finish</p>
       <h4> Control flow statements</h4>
+	  <p>When does the code learn what code to run next?</p>
+	  <h5>IF</h5>
+	  <p>Good ol' IF.</p>
+	  <p>Syntax:</p>
+	  <code>x = 2</code><br>
+		<code>if x==2:</code><br>
+		<code style="margin-left: 40px">    print("I'm in the if!")</code><br>
+	  <p>IF is used to check a conditional statement to know whether or not to run a set of code. It checks to see if a particular thing is true or not, and if it is, it runs whatever is indented in front of it.</p>
+	  <p>May contain an optional 'else' statement, which is a set of code to run instead if the conditional isn't true.</p>
+	  <h5>FOR</h5>
+	  <p>FOR is a bit more complex. FOR [things] IN [list]: [do stuff to things]</p>
+	  <p>It runs over the same code over and over again for a list of items in an array.</p>
+	  <p>Syntax:</p>
+	  <code>for x in range(1,8):</code><br>
+		<code style="margin-left: 40px">    print(x, "bottles of beer on the wall")</code><br>
+	  <p>May contain an optional 'else' statement, which runs when the FOR loop finishes.</p>
+	  <h5>WHILE</h5>
+	  <p>The WHILE is like an IF if it got stuck, like a record player. It keeps doing that little bit of code, over and over again, as long as it's conditional is still true.</p>
+	  <p>Syntax:</p>
+	  <code>x = 2</code><br>
+		<code>while x &#60; 8:</code><br>
+		<code style="margin-left: 40px">    print("I'm in the while!")</code><br>
+		<code style="margin-left: 40px">    x = x + 1</code><br>
+	  <p>May contain an optional 'else' statement, which runs when the WHILE loop finishes.</p>
       <h4> Functions</h4>
+	  <p style="color: red">TODO: finish</p>
       <h4> Object oriented programming </h4>
+	  <p style="color: red">TODO: finish</p>
       <h4> Variable scope and lifetime </h4>
+	  <p style="color: red">TODO: finish</p>
       <h4> Other concepts </h4>
-      <p </p>
+	  <p style="color: red">TODO: finish</p>
+      <p> </p>
     </div>
   </div>
 </div>
