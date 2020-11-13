@@ -147,7 +147,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif},h1,button {font-family:
 		  <li>Dictionaries</li>
 	  </ul>
 	  
-	  	<table>
+	  	<table style="border-color: Black">
 		  <tr>
 			<th>Type:</th>
 			<th>Ordered?</th>
@@ -212,15 +212,75 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif},h1,button {font-family:
 		<code style="margin-left: 40px">    x = x + 1</code><br>
 	  <p>May contain an optional 'else' statement, which runs when the WHILE loop finishes.</p>
       <h4> Functions</h4>
-	  <p style="color: red">TODO: finish</p>
+	  <p>A function is a method, essensially. When a certain keyword() is called, it does some code. To define a function, use 'def'</p>
+	  <code>def do_the_thing():</code><br>
+	  <code style="margin-left: 40px">    print("I'm doing the thing!")</code><br>
+	  <code>do_the_thing()</code><br>
+	  <p>And to call, simply use <code>do_the_thing()</code>.</p>
+	  <p>Arguments can be added as well, which are variables you can pass into a function to make it do stuff! simply put something in the brackets (()) when you define it, and something in the brackets when you call it, and it will pass that data from the call to the variable you define in the def function.</p>
+	  <code>def do_the_thing(thing):</code><br>
+	  <code style="margin-left: 40px">    print("I'm doing the", thing, "!")</code><br>
+	  <code>def do_the_thing_2(too, thing):</code><br>
+	  <code style="margin-left: 40px">    print("I'm doing the", thing, too, "!")</code><br>
+	  <code>do_the_thing_2("too", "thing")</code><br>
+	  <p>You can even have a function take an unknown number of variables by using the * symbol like this: <code>do_something_else(*stuff)</code></p>
+	  <p>Functions can be called within other functions, with different data, to make big, complex programs! Also, there's many other ways to format the input paramaters and output of a function. You can make it take a dictionary, you can make it have default values, you can use the <code>return</code> keyword to have it return a value when called, and you can use the <code>pass</code> keyword to have a function do... nothing.</p>
       <h4> Object oriented programming </h4>
-	  <p style="color: red">TODO: finish</p>
+	  <p>Object-oriented programming is the idea that code is composed of many different types of classes and objects, which all have inherint and inherited code from it's parent class, to save on data and space. In an object oriented language, if you want there to be two different cars in your program, you just call two Cars(), and differentiate them. In a non-object oriented language, however, you have to create the codebase and the programming for each car independantly, which takes more time, disk space, and resource useage when running the program.</p>
+	  <p>A 'class' is a blueprint with which to create objects. For instance, if I wanna make the 'car' class, I simply do this:</p>
+	  <code>class Car:</code><br>
+	  <code style="margin-left: 40px">pass</code><br>
+	  <p>And if I want things to be added to that car when I create a car, I define the __init__ function: </p>
+	  <code>class Car:</code><br>
+	  <code style="margin-left: 40px">def __init__(self, color, model):</code><br>
+	  <code style="margin-left: 80px">self.color = color</code><br>
+	  <code style="margin-left: 80px">self.model = model</code><br>
+	  <p>With that class, I can create a new car object by saying <code>x = Car("blue", "Mitsibishi")</code></p>
+	  <p>We can define functions in that class to act on the paramaters inside it. For example:</p>
+	  <code>class Car:</code><br>
+	  <code style="margin-left: 40px">def __init__(self, color, model):</code><br>
+	  <code style="margin-left: 80px">self.color = color</code><br>
+	  <code style="margin-left: 80px">self.model = model</code><br>
+	  <code style="margin-left: 40px">def printColor():</code><br>
+	  <code style="margin-left: 80px">print(color)</code><br>
+	  <p>...Then we can call it with:</p>
+	  <code>x = Car("blue", "Mitsibishi")</code><br>
+	  <code>x.printColor();</code><br>
+	  <p>And we can even make smaller child classes from existing classes! Simply put the parent class in the parentheses and voila! Child class. Example:</p>
+	  <code>class Sportscar(Car):</code><br>
+	  <code style="margin-left: 40px">pass</code><br>
+	  <p>...And that child class can have it's own paramaters and functions.</p>
+	  
       <h4> Variable scope and lifetime </h4>
-	  <p style="color: red">TODO: finish</p>
-      <h4> Other concepts </h4>
-	  <p style="color: red">TODO: finish</p>
+	  <p>Python has three levels of scope (or four, depending on who you ask), though usually people think of it as two. Global and non-global. However, let's look at all three individually:</p>
+	  <ul>
+		  <li>Local/Enclosing (shortest)</li>
+		  <li>Global</li>
+		  <li>Built-in (longest)</li>
+	  </ul>
+	  <h5>Local/Enclosing</h5>
+	  <p>The shortest and fastest of the four. If a variable is defined in a function, it only exists within the function, and is destroyed (or at least becomes unreachable until it's garbage-collected) once the function ends.</p>
+	  <p>Since it's the shortest and cheapest scope, you wanna try to make as many of your variables you can manage in this scope. Cluttering memory with variables you only need once can be avoided by using local scope.</p>
+	  <p>Similarly, if there is a function <i>within</i> another function, all the variables in that inner function are enclosed within that inner function, and cannot be accessed directly by the surrounding function that it's in. If you have an outer() and an inner() function, inner() can access variables in outer(), but outer() can't access variables in inner()</p>
+	  <h5>Global</h5>
+	  <p>Global variables can be seen, accessed, and changed anywhere in the program. If you've got a thing that's too important and too integral to the program to pass between function paramaters, make it global. Make it big and loud enough that the rest of the program can just know what it is and where it is.</p>
+	  <p>Global variables are either declared outside of a function, or by using the <code>global</code> keyword when defining it within a function. While this can be tricky, as you don't want to accidentally call on a global variable that hasn't been declared yet, it can be useful in a pinch when you gotta make a new variable that the whole program can see.</p>
+	  <h5>Built-in</h5>
+	  <p>Essensially, this is the scope that all Python keywords fall under, and everything in there has already been defined for you.</p>
+	  <p>You don't wanna have to go through with every program and define what things like <code>True</code> and <code>while</code> mean, so this scope is where all of those are sitting. If you're messing with this scope, you'd better know what you're doing.</p>
+	  <h5>LEGB Rule?</h5>
+	  <p>The LEGB is the idea that if you tell Python to find the x variable, it will first look in the Local scope, then the Enclosing scope (in any function that this function may be nested in), then in the Global scope, then finally in the Built-in scope, in that order. If it finds it in one of those scopes, it will use whatever it found first. If it doesn't find it, it will catch your computer on fire. I'm kidding, of course, it will actually just throw an error and kill your program.</p>
+	  <p>In general, you want your variables to be as far up (towards local) in that order as you can, to save on resource space in your program.</p>
+      <!-- <h4> Other concepts </h4> -->
+	  <!-- <p style="color: red">TODO: finish</p> -->
       <p> </p>
     </div>
+	<p>-------------------------------------</p>
+	<p>-------------------------------------</p>
+	<p>-------------------------------------</p>
+	<h4>CONGRADULATIONS!</h4>
+	<p>Using these instructions, rules and guidelines, you should now be able to maneuver your way around Python with ease! ...Or at least know how to make some really neat 'hello world' programs.</p>
+	<p>Feel free to visit the other sections for more examples and ways to see Python, as well as other resources to learn more.</p>
   </div>
 </div>
 
