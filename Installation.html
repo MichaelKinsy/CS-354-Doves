@@ -4,41 +4,148 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif},h1,button {font-family: "Montserrat", sans-serif}
-,{font-size:200px}
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Lato", sans-serif;
+  }
+
+  h1,
+  button {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  code {
+    margin-left: 50px;
+  }
 </style>
+
 <body>
 
   <!-- Navbar -->
   <div>
-    <a href="file:///Users/bigmike/Desktop/CS%20354/assignments/lw1-1/home.html" >Home</a>
-    <a href="file:///Users/bigmike/Desktop/CS%20354/assignments/lw1-1/intro.html" >Intro Programs</a>
-    <a href="file:///Users/bigmike/Desktop/CS%20354/assignments/lw1-1/advanced.html#" >Advanced Programs</a>
-    <a href="file:///Users/bigmike/Desktop/CS%20354/assignments/lw1-1/panultimate.html#" >Panultimate example!</a>
-    <a href="file:///Users/bigmike/Desktop/CS%20354/assignments/lw1-1/resources.html#" >Other Resources</a>
-    <a href="file:///Users/bigmike/Desktop/Cs%20354/assignments/lw1-1/tryit.html" >Try Python</a>
-    <a href="#" >Other Resources</a>
+
+    <a href="./home.html">Home</a>
+    <a href="./intro.html">Intro Programs</a>
+    <a href="./advanced.html">Advanced Programs</a>
+    <a href="./panultimate.html">Penultimate Example!</a>
+    <a href="./resources.html">Other Resources</a>
   </div>
-</div>
+  </div>
 
-<!-- Header -->
-<header >
-  <h1>Python Installation</h1>
-</header>
+  <!-- Header -->
+  <header>
+    <h1>Python Installation</h1>
+  </header>
 
-<!-- First Grid -->
-<div>
+  <div>
+    <p>
+      The default installation of python comes with a documentation file, an IDE (IDLE),
+      a GUI toolkit (tkinter), a package manager (pip), a test suite, and a command-line
+      Python interpreter. Many mainstream operating systems and distributions already have Python
+      installed, but if yours doesn't, it's a snap to install. Python has pre-built installation
+      executables for Windows, MacOS, and Linux. If you prefer, you can also download the source
+      code and build it yourself. There are two mainstream versions of python (2 & 3), but for
+      new installations, version 3 is strongly recommended.
+    </p>
+  </div>
 
-</div>
+  <div>
+    <h3>Windows</h3>
 
-<!-- Second Grid -->
-<div>
+    <p>
+      Installing python for Windows is as simple as installing any other application.
+    </p>
 
-</div>
+    <ul>
+      <li>Navigate to Python's <a href="https://www.python.org/downloads/windows/">releases for Windows.</a></li>
+      <li>Download the latest version.</li>
+      <li>Execute the installer.</li>
+      <li>(optional) if you want to use Python from the command line more easily, choose the option to add Python to
+        your PATH variable.</li>
+      <li>Choose install now, and then walk through the installation wizard.</li>
+    </ul>
 
-<div>
-    <h6>Brought to you by: Michael Kinsy, Doug Mcewen, Eddie Quebrado, Aidan Vanleuvan</h6>
-</div>
+    <p>
+      If you prefer to use a package manager, Python is also available on Chocolatey, via:
+    </p>
+
+    <code>choco install python</code><br>
+
+  </div>
+
+  <div>
+    <h3>MacOS</h3>
+
+    <p>
+      Similarly, installing Python on MacOS is a breeze.
+    </p>
+
+    <ul>
+      <li>Navigate to Python's <a href="https://www.python.org/downloads/mac-osx/">releases for MacOS.</a></li>
+      <li>Download the latest version.</li>
+      <li>Execute the installer.</li>
+      <li>Choose install now, and then walk through the installation wizard.</li>
+    </ul>
+
+    <p>
+      If you prefer to use a package manager, Python is also available on Homebrew, via:
+    </p>
+
+    <code>brew install python</code><br>
+
+  </div>
+
+  <div>
+    <h3>Linux</h3>
+
+    <p>
+      Installing Python on Linux is just as easy, but depends on your distribution.
+      Chances are, Python is already installed and you can just start using it!
+    </p>
+
+    <p>The simplest way is to use your distribution's built in package manager. Here are a few examples:</p>
+    <h4>Ubuntu (Apt)</h4>
+    <p><code>$ sudo apt-get update</code></p>
+    <p><code>$ sudo apt-get install python3.6</code></p>
+    <h4>Fedora (Yum)</h4>
+    <p><code>$ sudo yum install python3</code></p>
+    <h4>Arch (Pacman)</h4>
+    <p><code>$ pacman -S python</code></p>
+    <p>Development tools and utilities are available in the same manner.</p>
+  </div>
+
+  <div>
+    <h3>Building from source</h3>
+
+    <p>
+      If you need (or want) the most bleeding edge version of Python, you'll most likely need
+      to build it from the source code. These instructions are for Linux but can be adapted to other
+      operating systems as well.
+    </p>
+
+    <ul>
+      <li>First, clone the source code available <a href="https://github.com/python/cpython">here.</a></li>
+      <p><code>$ git clone https://github.com/python/cpython</code></p>
+      <li>Then, run the configuration script:</li>
+      <p><code>$ ./configure</code></p>
+      <p>Note that the configuration script has many options to customize the installation. Learn more by running:</p>
+      <p><code>$ ./configure --help</code></p>
+      <li>We can then make and install Python using:</li>
+      <p><code>$ make</code></p>
+      <p><code>$ make test</code></p>
+      <p><code>$ sudo make install</code></p>
+    </ul>
+  </div>
+
+  <div>
+    <h6>Brought to you by: Michael Kinsy, Doug Mcewen, Eddie Quebrado, Aidan Vanleuven</h6>
+  </div>
 
 </body>
 </html>
+
