@@ -23,12 +23,30 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif},h1,button {font-family:
 <!-- Header -->
 <header >
   <h1> Advanced Python Programs</h1>
+  <p>Please note: HTML does not like indentation, and won't let you copy-paste programs with indentation. If you would like to attempt these programs on your own, make sure the indentation is correct in your IDE</p>
 </header>
 
 <!-- First Grid -->
 <div>
-
-</div>
+<p>Let's start with something basic. How about a program which rolls a certain kind of dice a certain number of times, specified by the user's input:</p>
+<code>import random #import the random module</code><br>
+<code></code><br>
+<code>print("Roll a set of dice.")</code><br>
+<code>strnumber = input("How many dice? >") #ask to specify how many dice to roll</code><br>
+<code>max = input("How many sides do the dice have? > ") #ask what the maximum number of sides this dice has</code><br>
+<code></code><br>
+<code>printout = str(strnumber)+'d'+str(max) #make a little string to show (in standard D&D notation) what dice you're rolling</code><br>
+<code>print("rolling",printout) #print string we just made</code><br>
+<code></code><br>
+<code>total = 0 #create a variable (with the proper enclosing scope) to keep track of the roll total</code><br>
+<code>number=int(strnumber) #get an int version of the string we got earler</code><br>
+<code></code><br>
+<code>for x in range(number): #loop through as many times as the user specified</code><br>
+<code style="margin-left: 40px">y = int(random.randint(1,int(max))) #generate a random number between 1 and what the user specified</code><br>
+<code style="margin-left: 40px">print(y) #print it</code><br>
+<code style="margin-left: 40px">total = total + y #update the total</code><br>
+<code></code><br>
+<code>print("total:", total) #tell the total to the user</code><br>
 
 <!-- Second Grid -->
 <div>
