@@ -48,6 +48,65 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif},h1,button {font-family:
 <code></code><br>
 <code>print("total:", total) #tell the total to the user</code><br>
 
+<p></p>
+<p>Now, let's try solving a complex problem. Let's say that you wanna generate a character in Dungeons and Dragons, but you don't wanna have to go through the hassle of rolling all the dice and calculating it all up yourself. Here's a program that'll do all that for you!</p>
+
+<code>import random</code><br>
+<code>import math</code><br>
+<code>print("This program will generate starting Dungeons and Dragons character stats using the standard 5th-edition generation method, assigning stat numbers randomly.")</code><br>
+<code>name = input("Give your new character a name: ")</code><br>
+<code>statlist = []</code><br>
+<code>statmodlist = []</code><br>
+<code>statnames = ("Strength","Dexterity","Constitution","Intellegence","Wisdom","Charisma")</code><br>
+<code></code><br>
+<code>for x in range(6):</code><br>
+<code style="margin-left: 40px">rolls = [random.randint(1, 6), random.randint(1, 6), random.randint(1, 6), random.randint(1, 6)]</code><br>
+<code style="margin-left: 40px">rolls.sort(reverse = True)</code><br>
+<code style="margin-left: 40px">print(statnames[x], "=", rolls,", dropping", rolls[3])</code><br>
+<code style="margin-left: 40px">stat = rolls[0] + rolls[1] + rolls[2]</code><br>
+<code style="margin-left: 40px">statlist.append(stat)</code><br>
+<code></code><br>
+<code>print("------------")</code><br>
+<code>printed = name+"'s Stats (and Modifiers):"</code><br>
+<code>print(printed)</code><br>
+<code>for x in range(6):</code><br>
+<code style="margin-left: 40px">mod = math.floor((statlist[x] - 10)/2)</code><br>
+<code style="margin-left: 40px"></code><br>
+<code style="margin-left: 40px">modstr = str(mod)</code><br>
+<code style="margin-left: 40px"></code><br>
+<code style="margin-left: 40px">if mod > 0:</code><br>
+<code style="margin-left: 80px">modstr = "+" + modstr</code><br>
+<code style="margin-left: 40px"></code><br>
+<code style="margin-left: 40px">modstr = "("+modstr+")"</code><br>
+<code style="margin-left: 40px"></code><br>
+<code style="margin-left: 40px">statmodlist.append(modstr)</code><br>
+<code style="margin-left: 40px"></code><br>
+<code style="margin-left: 40px">print("  ",statnames[x], "=", statlist[x], modstr)</code><br>
+<code>print("------------")</code><br>
+<code>printed = name+"'s Ability Scores (without proficiencies):"</code><br>
+<code>print(printed)</code><br>
+<code></code><br>
+<code>print("   Athletics:",statmodlist[0])</code><br>
+<code>print("   Acrobatics, Sleight of Hand, Stealth:", statmodlist[1])</code><br>
+<code>print("   Arcana, History, Investigation, Nature, Religion:", statmodlist[3])</code><br>
+<code>print("   Animal Handling, Insight, Medicine, Perception, Survival:", statmodlist[4])</code><br>
+<code>print("   Deception, Intimidation, Performance, Persuasion:", statmodlist[5])</code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+<code></code><br>
+
+</div>
+
 <!-- Second Grid -->
 <div>
 
