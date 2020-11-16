@@ -134,7 +134,7 @@ Website structure:
         How to import and use Regex
         (TBD)
         
-    Panultimate example! (TBD)
+    Penultimate example! (TBD)
         Example explanation
             (almost every concept in one program) example
             (almost every concept in one program, with over-descriptive comments) example

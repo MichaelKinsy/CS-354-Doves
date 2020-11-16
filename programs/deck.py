@@ -28,6 +28,7 @@ class Deck:
     # Randomizes the order of cards in the deck
     def shuffleDeck(self):
         random.shuffle(self.cards)  # Uses the random module to shuffle the list
+        self.position = 0           # Reset our position in the deck when we shuffle
 
     # Draws a card from the top of the deck
     def drawCard(self):

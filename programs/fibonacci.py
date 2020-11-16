@@ -1,4 +1,4 @@
-number = input("Select the fibonacci number to return.\n")  # Gets user input
+number = input("List how many digits of the fibonacci sequence?\n")  # Gets user input
 number = int(number)                # Converts user input to an integer
 
 def fibonacci(n):                   # Function definition, returns the n-th fibonacci number
