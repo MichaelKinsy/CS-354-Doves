@@ -25,18 +25,44 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif},h1,button {font-family:
   <h1> Introductory Python Programs</h1>
 </header>
 
+<h2>Build instructions for intro programs</h2>
+<h3>Linux command line:</h3>
+<p>Option 1: Call the interpreter<br> $ python 'filename'.py or $ python3 'filename'.py</p>
+<p>Option 2: Let the script call the interpreter<br>1. Make sure the first line of your file has <b>#!/usr/bin/env python</b><br> 2. Make the file executable - <b>chmod +x 'filename'.py</b><br>3. Then execute the program as <b>./'filename'.py</b></p>
 <!-- First Grid -->
 <div>
+  <h3>Example 1:</h3>
 	<p>This program will roll a random 6 sided dice and print the result:</p>
-	
+
 	<code>import random #imports the module which allows for the generation of random numbers</code><br>
 	<code></code><br>
 	<code>print("Rolling a dice.") #simple text output to notify the user what we're doing</code><br>
 	<code>print(random.randint(1,6)) #printing a randomly generated integer between 1 and 6, to represent the 6 sides of a regular dice</code><br>
 </div>
 
+<div>
+  <h3>Example 2:</h3>
+  <p>This program takes in a number and computes the summation of the given number.</p>
+  <code>num = input("Please enter a number\n")    #input is the function that allows the program to take data from stdin<br>num = int(num)   #cast the given input string to an integer<br>count = 0<br>for j in range(num+1):    #iterates from 0 to n</code>
+  <br><code style="margin-left: 40px">count = count + j    #update our count variable</code>
+  <br><code>print(count)    #output count to screen</code>
 <!-- Second Grid -->
 <div>
+
+<div>
+  <h3>Example 3:</h3>
+  <p>Fibonacci sequence program</p>
+  <code>number = input("Select the fibonacci number to return.\n")  # Gets user input<br>number = int(number)                # Converts user input to an integer<br><br>def fibonacci(n):                   # Function definition, returns the n-th fibonacci number</code><br>
+  <code style="margin-left: 40px">x,y = 0,1                       # Declaring x and y<br>if n == 0:                      # Conditional statement</code>
+  <br><code style="margin-left: 80px">return x                    # Whitespace is important!</code><br>
+  <code style="margin-left: 40px">if n == 1:                      # Conditional statement</code><br>
+  <code style="margin-left: 80px">return y</code><br>
+  <code style="margin-left: 40px">for z in range(1, n):           # Range creates a sequence of numbers from 1 to n</code><br>
+  <code style="margin-left: 80px">x, y = y, x + y             # Set x to y, and y to x + y</code><br>
+  <code style="margin-left: 40px">return y</code><br>
+  <br><code>fibNumbers = list()                 # Make a list called fibNumbers<br>for z in range (0, number):         # Invoke `fibonacci` n times</code>
+  <br><code style="margin-left: 40px">fibNumbers.append(fibonacci(z)) # Append each result to the list</code><br><br>
+  <code>print(fibNumbers)                   # Print the result
 
 </div>
 
