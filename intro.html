@@ -23,7 +23,7 @@
 
   <!-- Navbar -->
   <div>
-    <a href="./index.html">Home</a>
+    <a href="./home.html">Home</a>
     <a href="./intro.html">Intro Programs</a>
     <a href="./advanced.html">Advanced Programs</a>
     <a href="./penultimate.html">Penultimate example!</a>
@@ -47,7 +47,7 @@
   <h3>Example 1:</h3>
 	<p>This program will roll a random 6 sided dice and print the result:</p>
 
-	<code>import random #imports the module which allows for the generation of random numbers</code><br>
+	<code>import random #imports the module which allows for the generation of random numbers>><br>
 	<code></code><br>
 	<code>print("Rolling a dice.") #simple text output to notify the user what we're doing</code><br>
 	<code>print(random.randint(1,6)) #printing a randomly generated integer between 1 and 6, to represent the 6 sides of a regular dice</code><br>
@@ -79,6 +79,22 @@
 
 </div>
 
+<div>
+	<h3>Example 4:</h3>
+	<p>Power Digit Sum Program</p> #Function definition finds the sum of the digits of the power of a number base and exponentials are specified by the user input
+	<code>bNum = base</code> #Get user input for base
+	<code>eNum = exp</code> #Get user input for exp
+	<code>result = math.pow(base, exp)</code> #Get the power ans store in result
+	<code style = "margin-left: 40px">sum,digit = 0,0 			#Declaring x and y</code>  
+	<br><code style = "margin-left: 40px">while(result != 0):		#While statement</code><br> 
+	<code style = "margin-left: 80px">digit = result % 10			#Get right most digit</code><br>
+	<code style = "margin-left: 80px">sum += digit				#Sum by digit</code><br>
+	<code style = "margin-left: 80px">result = result / 10			#Divide by 10</code><br>
+	<code style = "margin-left: 40px">return sum</code><br>
+	<br><code style = "margin-left: 40px"> </code><br>
+	<code>print(powerDigitSum)	# Print the result
+</div>
+	
 <div>
     <h6>Brought to you by: Michael Kinsy, Doug Mcewen, Eddie Quebrado, Aidan Vanleuven</h6>
 </div>
