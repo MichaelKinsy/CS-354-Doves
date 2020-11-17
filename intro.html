@@ -80,6 +80,25 @@
 </div>
 
 <div>
+<h3>Example 4:</h3>
+  <p>Power digit sum program</p>
+  <code>print("Power digit sum.") #Power digit sum</code>
+  <code>bInput = input("Enter base. > ") #Getting input for base</code>
+  <code>eInput = input("Enter exponential. > ") #Getting input for exponential
+  <code>result = math.pow(base,exp) #Get the power and store in result</code>
+  <br><code style="margin-left: 40px">sum = 0  #Declaring sum is zero</code><br>
+  <br><code style="margin-left: 40px">digit = 0 #Declaring digit is zero </code><br>
+  <code style="margin-left: 40px">while(result != 0): #While statement</code><br>
+  <code style="margin-left: 80px">digit = result % 10 #Get right most digit</code><br>
+  <code style="margin-left: 80px">sum += digit #Sum by digit </code><br>
+  <code style="margin-left: 80px">result = result / 10 #Divide by 10</code><br>
+  <code style="margin-left: 40px">return sum</code><br>
+  <code>powerdigitsum = [] #Make a list called powerdigitsum</code>
+  <code>powerdigitsum.append(powerdigitsum(bInput,eInput)) #Append result to powerdigitsum
+  <code>print(powerdigitsum) #Print the result
+</div>
+
+<div>
     <h6>Brought to you by: Michael Kinsy, Doug Mcewen, Eddie Quebrado, Aidan Vanleuven</h6>
 </div>
 
