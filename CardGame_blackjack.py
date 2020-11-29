@@ -238,7 +238,7 @@ class Game:
         return self.playDealer()
 
 
-def main():
+def blackjack():
     # List of suits
     suits = ["♠", "♣", "♥", "♦"]
 
@@ -290,4 +290,4 @@ def main():
         choice = input("\nPlay again?\n(1) Yes\n(2) No\n")
 
 
-main()
+blackjack()
