@@ -126,7 +126,9 @@ class Game:
 
     def displayHands(self):
 
-        print("------------------------------------")
+        # print("------------------------------------")
+        clear = "\n" * 100
+        print(clear)
 
         if (self.mode == "player"):
             print("Dealer shows:")
@@ -272,7 +274,7 @@ def blackjack():
 
             # game loop
             while (inp == 0):
-                q = input("\nWill you...\n(1) Hit\n(2) Stay\n(3) Quit\n")
+                q = input("\nWill you...\n(1) Hit\n(2) Stay\n(3) Quit\n> ")
                 inp = game.playPlayer(q)
 
         if (inp == 1):
@@ -287,7 +289,4 @@ def blackjack():
         print("\nWins: " + str(wins) + " Losses: " +
               str(losses) + " Ties: " + str(ties))
 
-        choice = input("\nPlay again?\n(1) Yes\n(2) No\n")
-
-
-blackjack()
+        choice = input("\nPlay again?\n(1) Yes\n(2) No\n> ")

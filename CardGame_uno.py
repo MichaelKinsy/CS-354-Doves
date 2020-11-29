@@ -198,5 +198,3 @@ def showCurrent(state):
     }
     printed = (switcher.get(state, "Current card: "))
     print (printed, currentColor, currentNumber)
-
-uno()
