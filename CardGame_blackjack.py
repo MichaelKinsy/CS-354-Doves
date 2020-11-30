@@ -11,7 +11,7 @@ class Deck:
         self.position = 0
 
     def displayNumberOfCards(self):
-        return "There are " + str(self.numberOfCards) + "cards in the deck."
+        return "There are " + str(self.numberOfCards) + " cards in the deck."
 
     def insert(self, card):
         self.cards.append(card)
@@ -48,7 +48,7 @@ class Card:
         self.number = number
 
     def __repr__(self):
-        return f"{self.suit} {self.number}"
+        return str(self.suit) + " "  + str(self.number)
 
     def getSuit(self):
         return self.suit

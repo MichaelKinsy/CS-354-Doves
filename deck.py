@@ -56,7 +56,7 @@ class Card:
 
     # "toString()" equivalent
     def __repr__(self):
-        return f"{self.number}:{self.suit}"
+        return str(self.suit) + " "  + str(self.number)
 
     # Returns the suit of a card
     def getSuit(self):
