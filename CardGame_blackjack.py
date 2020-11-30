@@ -11,7 +11,7 @@ class Deck:
         self.position = 0
 
     def displayNumberOfCards(self):
-        return f"There are {self.numberOfCards} cards in the deck."
+        return "There are " + str(self.numberOfCards) + "cards in the deck."
 
     def insert(self, card):
         self.cards.append(card)
@@ -275,6 +275,8 @@ def blackjack():
             # game loop
             while (inp == 0):
                 q = input("\nWill you...\n(1) Hit\n(2) Stay\n(3) Quit\n> ")
+                if (q != "1" and q != "2" and q != "3"):
+                    q = "3"
                 inp = game.playPlayer(q)
 
         if (inp == 1):

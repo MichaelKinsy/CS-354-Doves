@@ -14,7 +14,7 @@ class Deck:
 
     # Return the number of cards currently in the deck
     def displayNumberOfCards(self):
-        return f"There are {self.numberOfCards} cards in the deck."
+        return "There are " + str(self.numberOfCards) + "cards in the deck."
 
     # Insert a card into the deck
     def insert(self, card):
