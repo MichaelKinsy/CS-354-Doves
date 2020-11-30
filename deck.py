@@ -73,35 +73,42 @@ def insertCardsIntoDeck(suits, numbers, deck):
             c = Card(i, j)
             deck.insert(c)
 
-# List of suits
-suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
 
-# List of numbers
-numbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
+def main():
 
-# Create a new deck
-deck1 = Deck()
+    # List of suits
+    suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
 
-# Insert every combination of suits and numbers into the deck
-insertCardsIntoDeck(suits, numbers, deck1)
+    # List of numbers
+    numbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
 
-# Make sure we have 52
-print(deck1.displayNumberOfCards())
+    # Create a new deck
+    deck1 = Deck()
 
-# Output the ordered deck
-print("Ordered deck:")
-print(deck1.displayDeck())
-print("---------------------------")
+    # Insert every combination of suits and numbers into the deck
+    insertCardsIntoDeck(suits, numbers, deck1)
 
-# Shuffle the deck
-deck1.shuffleDeck()
+    # Make sure we have 52
+    print(deck1.displayNumberOfCards())
 
-# Print the shuffled deck
-print("Shuffled deck:")
-print(deck1.displayDeck())
-print("---------------------------")
+    # Output the ordered deck
+    print("Ordered deck:")
+    print(deck1.displayDeck())
+    print("---------------------------")
 
-# Draw a few cards
-print("Draw 1:", deck1.drawCard())
-print("Draw 2:", deck1.drawCard())
-print("Draw 3:", deck1.drawCard())
+    # Shuffle the deck
+    deck1.shuffleDeck()
+
+    # Print the shuffled deck
+    print("Shuffled deck:")
+    print(deck1.displayDeck())
+    print("---------------------------")
+
+    # Draw a few cards
+    print("Draw 1:", deck1.drawCard())
+    print("Draw 2:", deck1.drawCard())
+    print("Draw 3:", deck1.drawCard())
+
+# Direct an immidiate call to deck.py to main()
+if __name__ == "__main__":
+    main()

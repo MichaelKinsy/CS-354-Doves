@@ -126,5 +126,6 @@ def play(players):
             players[1]["Count"] = players[1]["Count"] + 2 
             print("I  have ", players[1]["Count"], "Cards")
 
-deal(deck,players)
-play(players)
+def playWar():
+    deal(deck,players)
+    play(players)
