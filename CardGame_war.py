@@ -7,28 +7,14 @@
 # The amount of cards the winner has are printed off.
 #------------------------------------------------
 
-#------------------------------------------------
-#This program plays a automated game of war between "you"
-# and the computer. Once the program begins it will split
-# the deck in half and give each half to both players then draw a card off
-# the top of each pile. The program then prints off both players cards
-# and whoever has a higher number card or wins the war wins.
-# The amount of cards the winner has are printed off.
-#------------------------------------------------
-
 import deck as d
 import  random as r
-
 
 # List of suits
 suits = ["Spades", "Clubs", "Hearts", "Diamonds"]
 
 # List of numbers
 numbers = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"]
-
-
-
-
 
 def deal(deck,players):
     hand = 25
