@@ -1,134 +1,89 @@
-import random
-from random import randrange
+import time
+from deck import Deck
+from deck import Card
+from deck import insertCardsIntoDeck
 
 
-class Deck:
+class Hand:
 
-    cards = list()
+    # constructor
+    def __init__(self, deck):
+        self.cards = list()
+        self.deck = deck
 
-    def __init__(self):
-        self.numberOfCards = 0
-        self.position = 0
-
-    def displayNumberOfCards(self):
-        return "There are " + str(self.numberOfCards) + " cards in the deck."
-
-    def insert(self, card):
-        self.cards.append(card)
-        self.numberOfCards += 1
-
-    def displayDeck(self):
+    # returns the list of cards in a hand
+    def getCards(self):
         return self.cards
 
-    def shuffleDeck(self):
-        random.shuffle(self.cards)
-        self.position = 0
+    # returns only the second card in a hand (used for the dealer's cards)
+    def getCardsConceal(self):
+        return self.cards[1]
 
-    def drawCard(self):
-        retval = self.cards[self.position]
-        self.position += 1
-        return retval
+    # calculate the value of the hand
+    # this is a list of length one or two since aces have two values
+    def totalValue(self):
+        retVal = list()
+        for x in self.cards:
+            if(len(self.getValue(x)) == 2):
+                if(len(retVal) == 0):
+                    retVal.append(self.getValue(x)[0])
+                    retVal.append(self.getValue(x)[1])
+                elif(len(retVal) == 1):
+                    retVal.append(self.getValue(x)[1] + retVal[0])
+                    retVal[0] = self.getValue(x)[0] + retVal[0]
+                else:
+                    retVal[0] = retVal[0] + 1
+                    retVal[1] = retVal[1] + 1
+            else:
+                if (len(retVal) == 1):
+                    retVal[0] = retVal[0] + self.getValue(x)[0]
+                elif (len(retVal) == 0):
+                    retVal.append(self.getValue(x)[0])
+                else:
+                    retVal[0] = retVal[0] + self.getValue(x)[0]
+                    retVal[1] = retVal[1] + self.getValue(x)[0]
 
-    def getPos(self):
-        return self.position
+        return retVal
 
-    def drawAndReplace(self):
-        retval = self.cards[self.position]
-        self.position += 1
-        self.cards.remove(retval)
-
-        self.cards.insert(randrange(len(self.cards) + 1), retval)
-        return retval
-
-
-class Card:
-
-    def __init__(self, suit, number):
-        self.suit = suit
-        self.number = number
-
-    def __repr__(self):
-        return str(self.suit) + " "  + str(self.number)
-
-    def getSuit(self):
-        return self.suit
-
-    def getNumber(self):
-        return self.number
-
-    def getValue(self):
+    # calculates the value of a single card
+    # returns a list of length one or two
+    def getValue(self, card):
         retVal = list()
         try:
-            retVal.append(int(self.number))
+            retVal.append(int(card.number))
         except ValueError:
-            if (self.number == "A"):
+            if (card.number == "A"):
                 retVal.append(1)
                 retVal.append(11)
             else:
                 retVal.append(10)
         return retVal
 
-
-def insertCardsIntoDeck(suits, numbers, deck):
-    for i in suits:
-        for j in numbers:
-            c = Card(i, j)
-            deck.insert(c)
-
-
-class Hand:
-
-    def __init__(self, deck):
-        self.cards = list()
-        self.deck = deck
-
-    def getCards(self):
-        return self.cards
-
-    def getCardsConceal(self):
-        return self.cards[1]
-
-    def totalValue(self):
-        retVal = list()
-        for x in self.cards:
-            if(len(x.getValue()) == 2):
-                if(len(retVal) == 0):
-                    retVal.append(x.getValue()[0])
-                    retVal.append(x.getValue()[1])
-                elif(len(retVal) == 1):
-                    retVal.append(x.getValue()[1] + retVal[0])
-                    retVal[0] = x.getValue()[0] + retVal[0]
-                else:
-                    retVal[0] = retVal[0] + 1
-                    retVal[1] = retVal[1] + 1
-            else:
-                if (len(retVal) == 1):
-                    retVal[0] = retVal[0] + x.getValue()[0]
-                elif (len(retVal) == 0):
-                    retVal.append(x.getValue()[0])
-                else:
-                    retVal[0] = retVal[0] + x.getValue()[0]
-                    retVal[1] = retVal[1] + x.getValue()[0]
-
-        return retVal
-
+    # invoke a hit (draw a card and add it to the hand)
     def hit(self):
         self.cards.append(self.deck.drawCard())
         return self.cards
 
 
 class Game:
+
+    # constructor
     def __init__(self, deck):
         self.deck = deck
         self.player = Hand(self.deck)
         self.dealer = Hand(self.deck)
         self.mode = "player"
+        self.shuffle = False
 
+    # prints the status of the game
     def displayHands(self):
 
-        # print("------------------------------------")
         clear = "\n" * 100
         print(clear)
+
+        if(self.shuffle == True):
+            print("Shuffling deck...\n")
+            self.shuffle = False
 
         if (self.mode == "player"):
             print("Dealer shows:")
@@ -140,6 +95,13 @@ class Game:
         print("\nYour hand " + str(self.pValue) + ":")
         print(self.player.getCards())
 
+    # part of the game that the user interacts with
+    # returns...
+    # 0 if the game should continue
+    # 1 if the player has won
+    # 2 if the player has lost
+    # 3 if the game is tied
+    # 4 if there is a quit condition
     def playPlayer(self, option):
 
         # initial deal
@@ -147,9 +109,9 @@ class Game:
 
             # shuffle deck if we're running out of cards
             # 18 is the max number of cards that could be used in a one deck game
-            if (self.deck.getPos() >= 34):
+            if (self.deck.position >= self.deck.numberOfCards - 18):
                 self.deck.shuffleDeck()
-                print("\nShuffling deck...\n")
+                self.shuffle = True
 
             # alternate giving cards to player and dealer
             self.player.hit()
@@ -187,31 +149,48 @@ class Game:
             return 0
 
         # player hit
-        if (option == "1"):
+        elif (option == "1"):
             self.player.hit()
 
             self.pValue = self.player.totalValue()
             if (len(self.pValue) == 2 and self.pValue[1] > 21):
                 self.pValue.pop(1)
 
+            # if the player has a 21, skip turn and advance game
+            for x in self.pValue:
+                if (x == 21):
+                    self.mode = "dealer"
+                    if (len(self.pValue) == 2):
+                        self.pValue.remove(self.pValue[0])
+                    return self.playDealer()
+
             self.displayHands()
             if (self.pValue[0] > 21):
+                self.mode = "dealer"
+                self.displayHands()
                 print("\nYou lose!")
                 return 2
 
             return 0
 
         # player stay
-        if (option == "2"):
+        elif (option == "2"):
             self.mode = "dealer"
             if (len(self.pValue) == 2):
                 self.pValue.remove(self.pValue[0])
             return self.playDealer()
 
         # player quit
-        if (option == "3"):
+        elif (option == "3"):
             return 4
 
+        # unrecognized input
+        else:
+            return 4
+
+    # the dealer's part of the game, invoked automatically from playPlayer
+    # dealer stays on any 17 (including soft) and hits any lower number
+    # win condition is returned to playPlayer and returned to the calling function
     def playDealer(self):
 
         self.dValue = self.dealer.totalValue()
@@ -251,22 +230,33 @@ def blackjack():
     # Create a deck
     deckOfCards = Deck()
 
-    # Load cards
-    insertCardsIntoDeck(suits, numbers, deckOfCards)
+    # Let user select the number of decks
+    deckNum = input("\nHow many decks should we play with?\n> ")
+    try:
+        deckNumInt = int(deckNum)
+        print("Playing with " + deckNum + " decks.")
+    except ValueError:
+        deckNumInt = 3
+        print("\nInvalid number. Let's use 3.")
+
+    time.sleep(3)
+
+    # Load cards into the deck
+    for x in range(1, deckNumInt):
+        insertCardsIntoDeck(suits, numbers, deckOfCards)
 
     # Shuffle them
     deckOfCards.shuffleDeck()
 
+    # Set up variables for game statistics
     choice = "1"
-
     wins = 0
     losses = 0
     ties = 0
 
-    # repeat?
+    # Let player start a new game repeatedly
     while (choice == "1"):
         game = Game(deckOfCards)
-
         inp = game.playPlayer("0")
 
         # inital deal, skip game loop if instant win
@@ -279,16 +269,17 @@ def blackjack():
                     q = "3"
                 inp = game.playPlayer(q)
 
+        # Update statistics
         if (inp == 1):
             wins += 1
-
         if (inp == 2):
             losses += 1
-
         if (inp == 3):
             ties += 1
 
+        # Print statistics
         print("\nWins: " + str(wins) + " Losses: " +
               str(losses) + " Ties: " + str(ties))
 
+        # Ask user if they will play again
         choice = input("\nPlay again?\n(1) Yes\n(2) No\n> ")

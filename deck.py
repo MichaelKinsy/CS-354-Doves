@@ -4,13 +4,11 @@ from random import randrange
 # Deck class that holds a collection of cards
 class Deck:
 
-    # Hold our collection of cards in a list
-    cards = list()
-
     # Constructor for the deck
     def __init__(self):
         self.numberOfCards = 0  # Instance variable to keep track of how many cards are in the deck
         self.position = 0       # Instance variable to keep track of our position in the deck
+        self.cards = list()     # Instance variable to hold our cards in a list
 
     # Return the number of cards currently in the deck
     def displayNumberOfCards(self):
@@ -67,9 +65,9 @@ class Card:
         return self.number
 
 # Utility function to add every combination of cards from two lists into a deck
-def insertCardsIntoDeck(suits, numbers, deck):
-    for i in suits:
-        for j in numbers:
+def insertCardsIntoDeck(s, n, deck):
+    for i in s:
+        for j in n:
             c = Card(i, j)
             deck.insert(c)
 
