@@ -1,10 +1,10 @@
 #------------------------------------------------
-This program plays a automated game of war between "you"
-and the computer. Once the program begins it will split
-the deck in half and give each half to both players then draw a card off
-the top of each pile. The program then prints off both players cards
-and whoever has a higher number card or wins the war wins.
-The amount of cards the winner has are printed off.
+#This program plays a automated game of war between "you"
+# and the computer. Once the program begins it will split
+# the deck in half and give each half to both players then draw a card off
+# the top of each pile. The program then prints off both players cards
+# and whoever has a higher number card or wins the war wins.
+# The amount of cards the winner has are printed off.
 #------------------------------------------------
 
 import deck as d
