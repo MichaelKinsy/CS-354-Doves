@@ -6,6 +6,23 @@ from deck import insertCardsIntoDeck
 
 class Hand:
 
+    # class variable for values of cards
+    dict = {
+        "A": [1, 11],
+        "2": [2],
+        "3": [3],
+        "4": [4],
+        "5": [5],
+        "6": [6],
+        "7": [7],
+        "8": [8],
+        "9": [9],
+        "10": [10],
+        "J": [10],
+        "Q": [10],
+        "K": [10]
+    }
+
     # constructor
     def __init__(self, deck):
         self.cards = list()
@@ -48,16 +65,7 @@ class Hand:
     # calculates the value of a single card
     # returns a list of length one or two
     def getValue(self, card):
-        retVal = list()
-        try:
-            retVal.append(int(card.number))
-        except ValueError:
-            if (card.number == "A"):
-                retVal.append(1)
-                retVal.append(11)
-            else:
-                retVal.append(10)
-        return retVal
+        return self.dict[card.number]
 
     # invoke a hit (draw a card and add it to the hand)
     def hit(self):
@@ -242,7 +250,7 @@ def blackjack():
     time.sleep(3)
 
     # Load cards into the deck
-    for x in range(1, deckNumInt):
+    for x in range(1, deckNumInt + 1):
         insertCardsIntoDeck(suits, numbers, deckOfCards)
 
     # Shuffle them
@@ -283,3 +291,7 @@ def blackjack():
 
         # Ask user if they will play again
         choice = input("\nPlay again?\n(1) Yes\n(2) No\n> ")
+
+# Direct an immidiate call to deck.py to main()
+if __name__ == "__main__":
+    blackjack()
